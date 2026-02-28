@@ -1,6 +1,10 @@
 # 今天又骗到钱啦（Chrome New Tab Extension）
 
 一个基于 Chrome 新标签页的效率插件：输入税后月收入（RMB），实时显示“今天已经赚到多少钱”、工作时长和今日进度百分比。
+<img width="1287" height="709" alt="Snipaste_2026-02-28_18-32-11" src="https://github.com/user-attachments/assets/b45851f2-2def-4a87-9616-76c8928c1b21" />
+
+<img width="1346" height="727" alt="Snipaste_2026-02-28_18-32-26" src="https://github.com/user-attachments/assets/d7cf4b13-d67c-4cb9-afda-8917a284bf10" />
+
 
 ## 功能特性
 - 覆盖 Chrome 新标签页展示收益卡片
