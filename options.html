@@ -1,0 +1,62 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>设置 - 工作收入追踪</title>
+  <style>
+    body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; max-width: 760px; margin: 24px auto; padding: 0 12px; }
+    form { display: grid; gap: 14px; }
+    label { display: grid; grid-template-columns: 220px 1fr; align-items: center; gap: 12px; font-weight: 600; }
+    input { padding: 7px 10px; border: 1px solid #bbb; border-radius: 6px; font-size: 16px; }
+    button { margin-top: 8px; padding: 10px; font-size: 16px; }
+    @media (max-width: 680px) { label { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <h1>工作收入追踪 - 设置</h1>
+  <form id="options-form">
+    <label>月薪（税后，RMB）<input name="monthlyIncome" type="number" min="0" step="0.01" required /></label>
+    <label>工作时长（小时）<input name="workHoursPerDay" type="number" min="0.5" max="24" step="0.5" required /></label>
+    <label>上班开始时间<input name="workStart" type="time" required /></label>
+    <label>午休开始时间<input name="lunchStart" type="time" required /></label>
+    <label>午休结束时间<input name="lunchEnd" type="time" required /></label>
+    <label>下班时间<input name="workEnd" type="time" required /></label>
+    <button type="submit">保存</button>
+  </form>
+
+  <script>
+    const DEFAULT_SETTINGS = {
+      monthlyIncome: 15000,
+      workHoursPerDay: 8,
+      workStart: "09:00",
+      lunchStart: "12:00",
+      lunchEnd: "13:30",
+      workEnd: "18:00",
+    };
+
+    const form = document.getElementById("options-form");
+
+    (async function init() {
+      const data = await chrome.storage.sync.get(DEFAULT_SETTINGS);
+      Object.entries(data).forEach(([k, v]) => {
+        if (form[k]) form[k].value = v;
+      });
+    })();
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const settings = {
+        monthlyIncome: Number(form.monthlyIncome.value),
+        workHoursPerDay: Number(form.workHoursPerDay.value),
+        workStart: form.workStart.value,
+        lunchStart: form.lunchStart.value,
+        lunchEnd: form.lunchEnd.value,
+        workEnd: form.workEnd.value,
+      };
+      await chrome.storage.sync.set(settings);
+      alert("保存成功");
+    });
+  </script>
+</body>
+</html>

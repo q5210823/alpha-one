@@ -1,0 +1,11 @@
+﻿{
+  "manifest_version": 3,
+  "name": "Work Value Tracker",
+  "version": "1.0.0",
+  "description": "输入税后收入，实时计算今天已经赚到多少。",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "options_page": "options.html",
+  "permissions": ["storage"]
+}

@@ -1,0 +1,72 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今天又骗到钱啦</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-overlay"></div>
+  <main class="page">
+    <section class="stage">
+      <section class="card">
+        <p id="headline" class="headline">今天已经骗到了</p>
+        <p id="money" class="money">¥0.00</p>
+        <p id="duration" class="duration">工作时长：0小时0分钟0秒</p>
+        <div class="progress-wrap" aria-label="今日工作进度">
+          <div id="progress-track" class="progress-track">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+          <p id="progress-text" class="progress-text">今日进度：0%</p>
+        </div>
+        <button id="open-settings" class="link-btn" type="button">设置</button>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="settings-dialog" class="settings-dialog">
+    <form id="settings-form" method="dialog">
+      <h2>工作收入追踪 - 设置</h2>
+
+      <label>
+        月薪（税后，RMB）
+        <input id="monthlyIncome" name="monthlyIncome" type="number" min="0" step="0.01" required />
+      </label>
+
+      <label>
+        工作时长（小时）
+        <input id="workHoursPerDay" name="workHoursPerDay" type="number" min="0.5" max="24" step="0.5" required />
+      </label>
+
+      <label>
+        上班开始时间
+        <input id="workStart" name="workStart" type="time" required />
+      </label>
+
+      <label>
+        午休开始时间
+        <input id="lunchStart" name="lunchStart" type="time" required />
+      </label>
+
+      <label>
+        午休结束时间
+        <input id="lunchEnd" name="lunchEnd" type="time" required />
+      </label>
+
+      <label>
+        下班时间
+        <input id="workEnd" name="workEnd" type="time" required />
+      </label>
+
+      <menu>
+        <button id="cancel-btn" value="cancel" type="reset">取消</button>
+        <button id="save-btn" value="default" type="submit">保存</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script src="newtab.js"></script>
+</body>
+</html>
+
