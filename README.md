@@ -1,4 +1,4 @@
-# 工作收入追踪（Chrome New Tab Extension）
+# 今天又骗到钱啦（Chrome New Tab Extension）
 
 一个基于 Chrome 新标签页的效率插件：输入税后月收入（RMB），实时显示“今天已经赚到多少钱”、工作时长和今日进度百分比。
 
